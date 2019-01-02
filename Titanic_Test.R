@@ -25,7 +25,7 @@ titanic.df$Pclass <- as.factor(titanic.df$Pclass)
 extractTitle <- function(name, nop) {
   name <- as.character(name)
   nop <- as.integer(nop)
-  
+
   if (length(grep("Miss.", name)) > 0) {
     return ("Miss")
   }else if (length(grep("Master.", name)) > 0) {
@@ -39,7 +39,7 @@ extractTitle <- function(name, nop) {
   }
 }
 
-titles <- NULL
+
 for (i in 1:nrow(titanic.df)) {
   titles <- c(titles, extractTitle(titanic.df[i,"Name"], titanic.df[i,"Parch"]))
 }
@@ -92,7 +92,7 @@ ggplot(titanic.df, aes(x=Age, fill = Survived))+
 #Plotting Sex vs PClass
 ggplot(titanic.df, aes(x = Sex, fill = Survived)) +
   geom_bar() +
-  facet_wrap(~Pclass) + 
+  facet_wrap(~Pclass) +
   ggtitle("Pclass") +
   xlab("Sex") +
   ylab("Total Count") +
